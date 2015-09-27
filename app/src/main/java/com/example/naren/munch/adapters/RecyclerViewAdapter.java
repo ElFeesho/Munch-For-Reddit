@@ -98,37 +98,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Glide.with(context).load(url).into(holder.mPostImage);
 
         //handle images
-        if (domain.equals("imgur.com") || domain.equals("i.imgur.com") ||
-                domain.equals("m.imgur.com")) {
+        if (domain.equals("imgur.com") || domain.equals("i.imgur.com") || domain.equals("m.imgur.com")) {
 
             if (!url.equals(jpegImageUrl)) {
-
                 Glide.with(context).load(jpegImageUrl).into(holder.mPostImage);
-                holder.mPlaceholder.setVisibility(View.GONE);
-
-                holder.mPostImage.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View view) {
-                        ExpandedImageView.startExpandedImageViewActivity(context, jpegImageUrl);
-                    }
-                });
-
             } else {
-
                 Glide.with(context).load(url).into(holder.mPostImage);
-                holder.mPlaceholder.setVisibility(View.GONE);
-
-                holder.mPostImage.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View view) {
-                        ExpandedImageView.startExpandedImageViewActivity(context, jpegImageUrl);
-                    }
-                });
-
             }
 
+            holder.mPlaceholder.setVisibility(View.GONE);
+            holder.mPostImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ExpandedImageView.startExpandedImageViewActivity(context, jpegImageUrl);
+                }
+            });
         }
 
         //handle gif content
