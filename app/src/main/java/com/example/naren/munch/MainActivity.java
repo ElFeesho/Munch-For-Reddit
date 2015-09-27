@@ -19,6 +19,40 @@ import com.example.naren.munch.fragments.RedditPostFragment;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static class ViewPagerAdapter extends FragmentStatePagerAdapter {
+
+        private final static String[] FEED_TITLES =
+
+                {"frontpage", "all", "aww", "art", "askreddit", "askscience",
+                        "announcements", "blogs", "books", "creepy", "dataisbeautiful", "DIY", "Documentaries",
+                        "earthporn", "explainlimeimfive", "fitness", "food", "funny", "futurology", "gadgets", "gaming", "getmotivated",
+                        "gifs", "history", "iama", "internetisbeautiful", "jokes", "lifeprotips",
+                        "listentothis", "mildlyinteresting", "movies", "Music", "news", "nosleep",
+                        "nottheonion", "oldschoolcool", "personalfinance", "philosophy",
+                        "photoshopbattles", "pics", "science", "showerthoughts", "space", "sports",
+                        "television", "tifu", "todayilearned", "twoxchromosomes", "upliftingnews", "videos", "worldnews", "writingprompts"
+                };
+
+        public ViewPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return RedditPostFragment.newInstance(FEED_TITLES[position], "");
+        }
+
+        @Override
+        public int getCount() {
+            return FEED_TITLES.length;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return FEED_TITLES[position];
+        }
+    }
+
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     private NavigationView mNavigationView;
@@ -33,15 +67,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mNavigationView = (NavigationView) findViewById(R.id.navigationView);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Munch");
+        mToolbar.setTitle("Munch");
 
-        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open,
-                R.string.drawer_close);
+        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open, R.string.drawer_close);
 
         mDrawerLayout.setDrawerListener(mToggle);
         mToggle.syncState();
@@ -338,7 +370,6 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
 
-
                     default:
 
                         mViewPager.setCurrentItem(0);
@@ -371,270 +402,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public static class ViewPagerAdapter extends FragmentStatePagerAdapter {
-
-        private final String[] FEED_TITLES =
-
-                {"frontpage", "all", "aww", "art", "askreddit", "askscience",
-                        "announcements", "blogs", "books", "creepy", "dataisbeautiful", "DIY", "Documentaries",
-                        "earthporn", "explainlimeimfive", "fitness", "food", "funny", "futurology", "gadgets", "gaming", "getmotivated",
-                        "gifs", "history", "iama", "internetisbeautiful", "jokes", "lifeprotips",
-                        "listentothis", "mildlyinteresting", "movies", "Music", "news", "nosleep",
-                        "nottheonion", "oldschoolcool", "personalfinance", "philosophy",
-                        "photoshopbattles", "pics", "science", "showerthoughts", "space", "sports",
-                        "television", "tifu", "todayilearned", "twoxchromosomes", "upliftingnews", "videos", "worldnews", "writingprompts"
-                };
-
-        public ViewPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            Fragment mFragment = null;
-
-
-//            for (int i = 0; i < FEED_TITLES.length; i++) {
-//
-//                mFragment = RedditPostFragment.newInstance(FEED_TITLES[i], "");
-//                return mFragment;
-//            }
-
-            switch (position) {
-
-                case 0:
-                    mFragment = RedditPostFragment.newInstance("frontpage", "");
-                    break;
-
-                case 1:
-                    mFragment = RedditPostFragment.newInstance("all", "");
-                    break;
-
-                case 2:
-                    mFragment = RedditPostFragment.newInstance("aww", "");
-                    break;
-
-                case 3:
-                    mFragment = RedditPostFragment.newInstance("art", "");
-                    break;
-
-                case 4:
-                    mFragment = RedditPostFragment.newInstance("askreddit", "");
-                    break;
-
-                case 5:
-                    mFragment = RedditPostFragment.newInstance("askscience", "");
-                    break;
-
-                case 6:
-                    mFragment = RedditPostFragment.newInstance("announcements", "");
-                    break;
-
-                case 7:
-                    mFragment = RedditPostFragment.newInstance("blogs", "");
-                    break;
-
-                case 8:
-                    mFragment = RedditPostFragment.newInstance("books", "");
-                    break;
-
-                case 9:
-                    mFragment = RedditPostFragment.newInstance("creepy", "");
-                    break;
-
-                case 10:
-                    mFragment = RedditPostFragment.newInstance("dataisbeautiful", "");
-                    break;
-
-                case 11:
-                    mFragment = RedditPostFragment.newInstance("diy", "");
-                    break;
-
-                case 12:
-                    mFragment = RedditPostFragment.newInstance("documentaries", "");
-                    break;
-
-                case 13:
-                    mFragment = RedditPostFragment.newInstance("earthporn", "");
-                    break;
-
-                case 14:
-                    mFragment = RedditPostFragment.newInstance("explainlikeimfive", "");
-                    break;
-
-                case 15:
-                    mFragment = RedditPostFragment.newInstance("fitness", "");
-                    break;
-
-                case 16:
-                    mFragment = RedditPostFragment.newInstance("food", "");
-                    break;
-
-                case 17:
-                    mFragment = RedditPostFragment.newInstance("funny", "");
-                    break;
-
-                case 18:
-                    mFragment = RedditPostFragment.newInstance("futurology", "");
-                    break;
-
-                case 19:
-                    mFragment = RedditPostFragment.newInstance("gadgets", "");
-                    break;
-
-                case 20:
-                    mFragment = RedditPostFragment.newInstance("gaming", "");
-                    break;
-
-                case 21:
-                    mFragment = RedditPostFragment.newInstance("getmotivated", "");
-                    break;
-
-                case 22:
-                    mFragment = RedditPostFragment.newInstance("gifs", "");
-                    break;
-
-                case 23:
-                    mFragment = RedditPostFragment.newInstance("history", "");
-                    break;
-
-                case 24:
-                    mFragment = RedditPostFragment.newInstance("iama", "");
-                    break;
-
-                case 25:
-                    mFragment = RedditPostFragment.newInstance("internetisbeautiful", "");
-                    break;
-
-                case 26:
-                    mFragment = RedditPostFragment.newInstance("jokes", "");
-                    break;
-
-                case 27:
-                    mFragment = RedditPostFragment.newInstance("lifeprotips", "");
-                    break;
-
-                case 28:
-                    mFragment = RedditPostFragment.newInstance("listentothis", "");
-                    break;
-
-                case 29:
-                    mFragment = RedditPostFragment.newInstance("mildlyinteresting", "");
-                    break;
-
-                case 30:
-                    mFragment = RedditPostFragment.newInstance("movies", "");
-                    break;
-
-                case 31:
-                    mFragment = RedditPostFragment.newInstance("music", "");
-                    break;
-
-                case 32:
-                    mFragment = RedditPostFragment.newInstance("news", "");
-                    break;
-
-                case 33:
-                    mFragment = RedditPostFragment.newInstance("nosleep", "");
-                    break;
-
-                case 34:
-                    mFragment = RedditPostFragment.newInstance("nottheonion", "");
-                    break;
-
-                case 35:
-                    mFragment = RedditPostFragment.newInstance("oldschoolcool", "");
-                    break;
-
-                case 36:
-                    mFragment = RedditPostFragment.newInstance("personalfinances", "");
-                    break;
-
-                case 37:
-                    mFragment = RedditPostFragment.newInstance("philosophy", "");
-                    break;
-
-                case 38:
-                    mFragment = RedditPostFragment.newInstance("photoshopbattles", "");
-                    break;
-
-                case 39:
-                    mFragment = RedditPostFragment.newInstance("pics", "");
-                    break;
-
-                case 40:
-                    mFragment = RedditPostFragment.newInstance("science", "");
-                    break;
-
-                case 41:
-                    mFragment = RedditPostFragment.newInstance("showerthoughts", "");
-                    break;
-
-                case 42:
-                    mFragment = RedditPostFragment.newInstance("space", "");
-                    break;
-
-                case 43:
-                    mFragment = RedditPostFragment.newInstance("sports", "");
-                    break;
-
-                case 44:
-                    mFragment = RedditPostFragment.newInstance("television", "");
-                    break;
-
-                case 45:
-                    mFragment = RedditPostFragment.newInstance("tifu", "");
-                    break;
-
-                case 46:
-                    mFragment = RedditPostFragment.newInstance("todayilearned", "");
-                    break;
-
-                case 47:
-                    mFragment = RedditPostFragment.newInstance("twoxchromosomes", "");
-                    break;
-
-                case 48:
-                    mFragment = RedditPostFragment.newInstance("upliftingnews", "");
-                    break;
-
-                case 49:
-                    mFragment = RedditPostFragment.newInstance("videos", "");
-                    break;
-
-                case 50:
-                    mFragment = RedditPostFragment.newInstance("worldnews", "");
-                    break;
-
-                case 51:
-                    mFragment = RedditPostFragment.newInstance("writingprompts", "");
-                    break;
-
-
-                default:
-                    mFragment = RedditPostFragment.newInstance("frontpage", "");
-                    break;
-            }
-
-            return mFragment;
-        }
-
-        @Override
-        public int getCount() {
-            return FEED_TITLES.length;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return FEED_TITLES[position];
-        }
-    }
-
     @Override
     public void onBackPressed() {
 
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-
             mDrawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
