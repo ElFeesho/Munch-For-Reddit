@@ -42,7 +42,7 @@ public class SubredditViewPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return RedditPostFragment.newInstance(FEED_TITLES[position], "");
+        return RedditPostFragment.newInstance(FEED_TITLES[position]);
     }
 
     @Override
