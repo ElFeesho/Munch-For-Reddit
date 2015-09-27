@@ -1,5 +1,6 @@
 package com.example.naren.munch;
 
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,15 +11,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
-import com.example.naren.munch.adapters.RecyclerViewAdapter;
 import com.example.naren.munch.fragments.RedditPostFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -63,21 +59,21 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (menuItem.getItemId()) {
 
-                    case R.id.nav_profile:
-                        Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.nav_messages:
-                        Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.nav_user:
-                        Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.nav_Subreddit:
-                        Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.nav_settings:
-                        Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
-                        break;
+//                    case R.id.nav_profile:
+//                        Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
+//                        break;
+//                    case R.id.nav_messages:
+//                        Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
+//                        break;
+//                    case R.id.nav_user:
+//                        Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
+//                        break;
+//                    case R.id.nav_Subreddit:
+//                        Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
+//                        break;
+//                    case R.id.nav_settings:
+//                        Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
+//                        break;
 
                     case R.id.item_frontpage:
                         mViewPager.setCurrentItem(0);
