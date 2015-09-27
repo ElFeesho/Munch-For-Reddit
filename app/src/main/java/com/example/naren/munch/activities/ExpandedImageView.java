@@ -1,12 +1,13 @@
 package com.example.naren.munch.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.Environment;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,6 +37,11 @@ public class ExpandedImageView extends AppCompatActivity {
     private PhotoView mPhotoView;
     private String imageUrl;
     private ProgressBar mProgressbar;
+
+    public static void startExpandedImageViewActivity(Context context, String url)
+    {
+        context.startActivity(new Intent(context, ExpandedImageView.class).putExtra("image", url));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

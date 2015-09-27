@@ -1,5 +1,7 @@
 package com.example.naren.munch.activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -32,108 +34,6 @@ import java.util.ArrayList;
 
 public class DetailedSelfPostActivity extends AppCompatActivity {
 
-    Bundle bundle;
-
-    private TextView mPostTitle, mPostScore, mComments, mSubreddit, mAuthor,
-            mDomain, mTime, mSelfttext_html;
-    private LinearLayout mSelfTextPlaceholder;
-
-    private Toolbar mToolbar;
-    private ProgressBar mProgressbar;
-    private CommentAdapter adapter;
-    private ListView mListView;
-    private ArrayList<Comment> commentArrayList = new ArrayList<>();
-    private LayoutInflater layoutInflater;
-
-    private String selftext_html;
-    private String title;
-    private String author;
-    private String subreddit;
-    private String domain;
-    private int postScore;
-    private int comments;
-    private String permalink;
-    private int time;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        SwipeBack.attach(this, Position.LEFT)
-                .setContentView(R.layout.activity_detailed_self_post)
-                .setSwipeBackView(R.layout.swipeback_custom);
-
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Back");
-
-        mProgressbar = (ProgressBar) findViewById(R.id.progressbar);
-
-        bundle = getIntent().getExtras();
-
-        String op_author = bundle.getString("author");
-
-        initializeBundleData();
-        mListView = (ListView) findViewById(R.id.comment_listView);
-
-        layoutInflater = getLayoutInflater();
-        View header = layoutInflater.inflate(R.layout.detail_self_post_card, null);
-
-        mPostTitle = (TextView) header.findViewById(R.id.post_title_textView);
-        mSelfTextPlaceholder = (LinearLayout) header.findViewById(R.id.selftext_placeholder);
-        mSelfttext_html = (TextView) header.findViewById(R.id.selftext_id);
-        mPostScore = (TextView) header.findViewById(R.id.post_score);
-        mComments = (TextView) header.findViewById(R.id.post_comments);
-        mSubreddit = (TextView) header.findViewById(R.id.post_subreddit);
-        mDomain = (TextView) header.findViewById(R.id.post_domain);
-//        mTime = (TextView) header.findViewById(R.id.post_time);
-        mAuthor = (TextView) header.findViewById(R.id.post_author);
-
-        mListView.addHeaderView(header);
-        adapter = new CommentAdapter(this, new CommentProcessor().fetchComments());
-        mListView.setAdapter(adapter);
-
-        attachBundleData();
-
-    }
-
-    public void initializeBundleData() {
-
-        selftext_html = bundle.getString("selftext_html");
-        title = bundle.getString("title");
-        author = bundle.getString("author");
-        subreddit = bundle.getString("subreddit");
-        domain = bundle.getString("domain");
-        postScore = bundle.getInt("post_score");
-        comments = bundle.getInt("comments");
-        permalink = bundle.getString("permalink");
-        time = bundle.getInt("time");
-
-    }
-
-    public void attachBundleData() {
-
-        mPostTitle.setText(title);
-        mAuthor.setText(author);
-        mSubreddit.setText(subreddit);
-        mDomain.setText(domain);
-        mPostScore.setText(postScore + " points");
-        mComments.setText(comments + " comments");
-
-        if (selftext_html.contains("null")) {
-            mSelfTextPlaceholder.setVisibility(View.GONE);
-
-        } else {
-
-            mSelfTextPlaceholder.setVisibility(View.VISIBLE);
-            mSelfttext_html.setText(Html.fromHtml(selftext_html));
-
-        }
-
-    }
-
     public class CommentProcessor {
 
         public CommentProcessor() {
@@ -158,7 +58,6 @@ public class DetailedSelfPostActivity extends AppCompatActivity {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-
 
 
                 }
@@ -225,41 +124,134 @@ public class DetailedSelfPostActivity extends AppCompatActivity {
         }
 
     }
+    Bundle bundle;
+    private TextView mPostTitle, mPostScore, mComments, mSubreddit, mAuthor, mDomain, mSelfttext_html;
+    private LinearLayout mSelfTextPlaceholder;
+    private Toolbar mToolbar;
+    private ProgressBar mProgressbar;
+    private CommentAdapter adapter;
+    private ListView mListView;
+    private ArrayList<Comment> commentArrayList = new ArrayList<>();
+    private LayoutInflater layoutInflater;
+    private String selftext_html;
+    private String title;
+    private String author;
+    private String subreddit;
+    private String domain;
+    private int postScore;
+    private int comments;
+    private String permalink;
 
+    public static void startDetailedSelfPostActivity(Context context, String selftext_html, String title, String author, String subreddit, String domain, int postScore, int comments, String permalink) {
+        Intent intent = new Intent(context, DetailedSelfPostActivity.class);
+
+        Bundle bundle = new Bundle();
+
+        bundle.putString("selftext_html", selftext_html);
+        bundle.putString("title", title);
+        bundle.putString("author", author);
+        bundle.putString("subreddit", subreddit);
+        bundle.putString("domain", domain);
+        bundle.putInt("post_score", postScore);
+        bundle.putInt("comments", comments);
+        bundle.putString("permalink", permalink);
+
+        intent.putExtras(bundle);
+        context.startActivity(intent);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        SwipeBack.attach(this, Position.LEFT)
+                .setContentView(R.layout.activity_detailed_self_post)
+                .setSwipeBackView(R.layout.swipeback_custom);
+
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Back");
+
+        mProgressbar = (ProgressBar) findViewById(R.id.progressbar);
+
+        bundle = getIntent().getExtras();
+
+        initializeBundleData();
+        mListView = (ListView) findViewById(R.id.comment_listView);
+
+        layoutInflater = getLayoutInflater();
+        View header = layoutInflater.inflate(R.layout.detail_self_post_card, null);
+
+        mPostTitle = (TextView) header.findViewById(R.id.post_title_textView);
+        mSelfTextPlaceholder = (LinearLayout) header.findViewById(R.id.selftext_placeholder);
+        mSelfttext_html = (TextView) header.findViewById(R.id.selftext_id);
+        mPostScore = (TextView) header.findViewById(R.id.post_score);
+        mComments = (TextView) header.findViewById(R.id.post_comments);
+        mSubreddit = (TextView) header.findViewById(R.id.post_subreddit);
+        mDomain = (TextView) header.findViewById(R.id.post_domain);
+        mAuthor = (TextView) header.findViewById(R.id.post_author);
+
+        mListView.addHeaderView(header);
+        adapter = new CommentAdapter(this, new CommentProcessor().fetchComments());
+        mListView.setAdapter(adapter);
+
+        attachBundleData();
+    }
+
+    public void initializeBundleData() {
+        selftext_html = bundle.getString("selftext_html");
+        title = bundle.getString("title");
+        author = bundle.getString("author");
+        subreddit = bundle.getString("subreddit");
+        domain = bundle.getString("domain");
+        postScore = bundle.getInt("post_score");
+        comments = bundle.getInt("comments");
+        permalink = bundle.getString("permalink");
+    }
+
+    public void attachBundleData() {
+
+        mPostTitle.setText(title);
+        mAuthor.setText(author);
+        mSubreddit.setText(subreddit);
+        mDomain.setText(domain);
+        mPostScore.setText(postScore + " points");
+        mComments.setText(comments + " comments");
+
+        if (selftext_html.contains("null")) {
+            mSelfTextPlaceholder.setVisibility(View.GONE);
+        } else {
+            mSelfTextPlaceholder.setVisibility(View.VISIBLE);
+            mSelfttext_html.setText(Html.fromHtml(selftext_html));
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_detailed_self_post, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-
             finish();
 
             return true;
-
         }
 
         if (id == R.id.action_refresh) {
-
             mListView.setVisibility(View.GONE);
             mProgressbar.setVisibility(View.VISIBLE);
             new CommentProcessor().fetchComments();
-            mListView.smoothScrollToPosition(0,0);
+            mListView.smoothScrollToPosition(0, 0);
 
             return true;
-
         }
-
 
         return super.onOptionsItemSelected(item);
     }

@@ -1,5 +1,6 @@
 package com.example.naren.munch.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -24,6 +25,19 @@ public class YoutubeActivity extends YouTubeBaseActivity implements YouTubePlaye
     private String youtubeUrl;
     private String normalYoutubeUrl;
     private String browserYoutubeUrl;
+
+    public static void startYoutubeActivity(Context context, String link)
+    {
+        Intent intent = new Intent(context, YoutubeActivity.class);
+
+        Bundle bundle = new Bundle();
+
+        bundle.putString("youtube_link", link);
+
+        intent.putExtras(bundle);
+
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

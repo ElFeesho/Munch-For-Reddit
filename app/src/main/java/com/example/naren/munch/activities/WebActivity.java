@@ -1,5 +1,6 @@
 package com.example.naren.munch.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,6 +24,14 @@ public class WebActivity extends AppCompatActivity {
     private String webUrl;
     private static final String READABILITY_PREFIX = "http://www.readability.com/m?url=";
 
+    public static void startWebActivity(Context context, String webUrl)
+    {
+        Intent intent = new Intent(context, WebActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("web_link", webUrl);
+        intent.putExtras(bundle);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,12 +1,14 @@
 package com.example.naren.munch.activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +28,28 @@ public class DetailedPostActivity extends AppCompatActivity{
     private LinearLayout mLinearLayout;
     private int mPagerPosition;
     private int mPagerOffsetPixels;
+
+    public static void startDetailedPostActivity(Context context, String url, String title, String author, String subreddit, String domain, int postScore, int comments, String permalink, String thumbnail, String youtube_thumbnail)
+    {
+        Intent intent = new Intent(context, DetailedPostActivity.class);
+
+        Bundle bundle = new Bundle();
+
+        bundle.putString("url", url);
+        bundle.putString("title", title);
+        bundle.putString("author", author);
+        bundle.putString("subreddit", subreddit);
+        bundle.putString("domain", domain);
+        bundle.putInt("post_score", postScore);
+        bundle.putInt("comments", comments);
+        bundle.putString("permalink", permalink);
+//                                                           bundle.putInt("time", hour);
+        bundle.putString("thumbnail", thumbnail);
+        bundle.putString("youtube_thumbnail", youtube_thumbnail);
+
+        intent.putExtras(bundle);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

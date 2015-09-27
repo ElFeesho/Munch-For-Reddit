@@ -1,12 +1,13 @@
 package com.example.naren.munch.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.Environment;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,6 +35,11 @@ public class GifActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private ProgressBar mProgressbar;
 
+    public static void startGifActivity(Context context, String url)
+    {
+        Intent intent = new Intent(context, GifActivity.class).putExtra("gif", url);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
