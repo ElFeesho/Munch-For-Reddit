@@ -61,11 +61,27 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private ViewPagerAdapter mAdapter;
 
+    private final static int[] subredditIds = {
+            R.id.item_frontpage, R.id.item_all, R.id.item_aww,
+            R.id.item_art, R.id.item_askreddit, R.id.item_askscience, R.id.item_announcements,
+            R.id.item_blog, R.id.item_books, R.id.item_creepy, R.id.item_dataisbeautiful,
+            R.id.item_diy, R.id.item_documentaries, R.id.item_earthporn, R.id.item_eli5,
+            R.id.item_fitness, R.id.item_food, R.id.item_funny, R.id.item_futurology,
+            R.id.item_gadgets, R.id.item_gaming, R.id.item_getmotivated, R.id.item_gifs,
+            R.id.item_history, R.id.item_iama, R.id.item_internetisbeautiful, R.id.item_jokes, R.id.item_lpt,
+            R.id.item_listentothis, R.id.item_mildlyinteresting, R.id.item_movies, R.id.item_music,
+            R.id.item_news, R.id.item_nosleep, R.id.item_nottheonion, R.id.item_oldschoolcool,
+            R.id.item_personalfinance, R.id.item_philosophy, R.id.item_photoshopbattles, R.id.item_pics,
+            R.id.item_science, R.id.item_showerthoughts, R.id.item_space, R.id.item_sports,
+            R.id.item_television, R.id.item_tifu, R.id.item_til, R.id.item_twox,
+            R.id.item_upnews, R.id.item_videos, R.id.item_worldnews, R.id.item_writingprompts
+    };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mNavigationView = (NavigationView) findViewById(R.id.navigationView);
@@ -88,300 +104,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
 
-
-                switch (menuItem.getItemId()) {
-
-//                    case R.id.nav_profile:
-//                        Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
-//                        break;
-//                    case R.id.nav_messages:
-//                        Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
-//                        break;
-//                    case R.id.nav_user:
-//                        Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
-//                        break;
-//                    case R.id.nav_Subreddit:
-//                        Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
-//                        break;
-//                    case R.id.nav_settings:
-//                        Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
-//                        break;
-
-                    case R.id.item_frontpage:
-                        mViewPager.setCurrentItem(0);
-                        break;
-
-                    case R.id.item_all:
-                        mViewPager.setCurrentItem(1);
-                        break;
-
-                    case R.id.item_aww:
-                        mViewPager.setCurrentItem(2);
-                        break;
-
-                    case R.id.item_art:
-
-                        mViewPager.setCurrentItem(3);
-                        break;
-
-                    case R.id.item_askreddit:
-
-                        mViewPager.setCurrentItem(4);
-                        break;
-
-                    case R.id.item_askscience:
-
-                        mViewPager.setCurrentItem(5);
-                        break;
-
-                    case R.id.item_announcements:
-
-                        mViewPager.setCurrentItem(6);
-                        break;
-
-                    case R.id.item_blog:
-
-                        mViewPager.setCurrentItem(7);
-                        break;
-
-                    case R.id.item_books:
-
-                        mViewPager.setCurrentItem(8);
-                        break;
-
-                    case R.id.item_creepy:
-
-                        mViewPager.setCurrentItem(9);
-                        break;
-
-                    case R.id.item_dataisbeautiful:
-
-                        mViewPager.setCurrentItem(10);
-                        break;
-
-                    case R.id.item_diy:
-
-                        mViewPager.setCurrentItem(11);
-                        break;
-
-                    case R.id.item_documentaries:
-
-                        mViewPager.setCurrentItem(12);
-                        break;
-
-                    case R.id.item_earthporn:
-
-                        mViewPager.setCurrentItem(13);
-                        break;
-
-
-                    case R.id.item_eli5:
-
-                        mViewPager.setCurrentItem(14);
-                        break;
-
-                    case R.id.item_fitness:
-
-                        mViewPager.setCurrentItem(15);
-                        break;
-
-                    case R.id.item_food:
-
-                        mViewPager.setCurrentItem(16);
-                        break;
-
-                    case R.id.item_funny:
-
-                        mViewPager.setCurrentItem(17);
-                        break;
-
-                    case R.id.item_futurology:
-
-                        mViewPager.setCurrentItem(18);
-                        break;
-
-                    case R.id.item_gadgets:
-
-                        mViewPager.setCurrentItem(19);
-                        break;
-
-                    case R.id.item_gaming:
-
-                        mViewPager.setCurrentItem(20);
-                        break;
-
-                    case R.id.item_getmotivated:
-
-                        mViewPager.setCurrentItem(21);
-                        break;
-
-                    case R.id.item_gifs:
-
-                        mViewPager.setCurrentItem(22);
-                        break;
-
-                    case R.id.item_history:
-
-                        mViewPager.setCurrentItem(23);
-                        break;
-
-                    case R.id.item_iama:
-
-                        mViewPager.setCurrentItem(24);
-                        break;
-
-                    case R.id.item_internetisbeautiful:
-
-                        mViewPager.setCurrentItem(25);
-                        break;
-
-                    case R.id.item_jokes:
-
-                        mViewPager.setCurrentItem(26);
-                        break;
-
-                    case R.id.item_lpt:
-
-                        mViewPager.setCurrentItem(27);
-                        break;
-
-                    case R.id.item_listentothis:
-
-                        mViewPager.setCurrentItem(28);
-                        break;
-
-
-                    case R.id.item_mildlyinteresting:
-
-                        mViewPager.setCurrentItem(29);
-                        break;
-
-                    case R.id.item_movies:
-
-                        mViewPager.setCurrentItem(30);
-                        break;
-
-                    case R.id.item_music:
-
-                        mViewPager.setCurrentItem(31);
-                        break;
-
-                    case R.id.item_news:
-
-                        mViewPager.setCurrentItem(32);
-                        break;
-
-                    case R.id.item_nosleep:
-
-                        mViewPager.setCurrentItem(33);
-                        break;
-
-
-                    case R.id.item_nottheonion:
-
-                        mViewPager.setCurrentItem(34);
-                        break;
-
-                    case R.id.item_oldschoolcool:
-
-                        mViewPager.setCurrentItem(35);
-                        break;
-
-
-                    case R.id.item_personalfinance:
-
-                        mViewPager.setCurrentItem(36);
-                        break;
-
-                    case R.id.item_philosophy:
-
-                        mViewPager.setCurrentItem(37);
-                        break;
-
-                    case R.id.item_photoshopbattles:
-
-                        mViewPager.setCurrentItem(38);
-                        break;
-
-                    case R.id.item_pics:
-
-                        mViewPager.setCurrentItem(39);
-                        break;
-
-                    case R.id.item_science:
-
-                        mViewPager.setCurrentItem(40);
-                        break;
-
-                    case R.id.item_showerthoughts:
-
-                        mViewPager.setCurrentItem(41);
-                        break;
-
-                    case R.id.item_space:
-
-                        mViewPager.setCurrentItem(42);
-                        break;
-
-                    case R.id.item_sports:
-
-                        mViewPager.setCurrentItem(43);
-                        break;
-
-                    case R.id.item_television:
-
-                        mViewPager.setCurrentItem(44);
-                        break;
-
-                    case R.id.item_tifu:
-
-                        mViewPager.setCurrentItem(45);
-                        break;
-
-                    case R.id.item_til:
-
-                        mViewPager.setCurrentItem(46);
-                        break;
-
-                    case R.id.item_twox:
-
-                        mViewPager.setCurrentItem(47);
-                        break;
-
-                    case R.id.item_upnews:
-
-                        mViewPager.setCurrentItem(48);
-                        break;
-
-                    case R.id.item_videos:
-
-                        mViewPager.setCurrentItem(49);
-                        break;
-
-                    case R.id.item_worldnews:
-
-                        mViewPager.setCurrentItem(50);
-                        break;
-
-
-                    case R.id.item_writingprompts:
-
-                        mViewPager.setCurrentItem(51);
-                        break;
-
-
-                    default:
-
-                        mViewPager.setCurrentItem(0);
-
-                }
-
-//                mDrawerLayout.closeDrawers();
-
+                mViewPager.setCurrentItem(lookupSubredditIdPosition(menuItem.getItemId()), true);
                 return true;
             }
         });
 
+    }
+
+    private int lookupSubredditIdPosition(int itemId) {
+        int position = 0;
+        for (int i = 0; i < subredditIds.length; i++)
+        {
+            if (subredditIds[i] == itemId)
+            {
+                position = i;
+                break;
+            }
+        }
+        return position;
     }
 
     @Override
