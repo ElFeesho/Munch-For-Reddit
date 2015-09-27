@@ -21,7 +21,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.naren.munch.R;
 import com.example.naren.munch.adapters.CommentAdapter;
 import com.example.naren.munch.model.Comment;
-import com.example.naren.munch.network.MySingleton;
+import com.example.naren.munch.network.NetworkOperationQueue;
 import com.hannesdorfmann.swipeback.Position;
 import com.hannesdorfmann.swipeback.SwipeBack;
 
@@ -169,7 +169,7 @@ public class DetailedSelfPostActivity extends AppCompatActivity {
                 }
             });
 
-            MySingleton.getInstance(getApplication()).addToRequestQueue(jsonArrayRequest);
+            NetworkOperationQueue.getInstance(getApplication()).addToRequestQueue(jsonArrayRequest);
 
             return commentArrayList;
 

@@ -9,17 +9,17 @@ import com.android.volley.toolbox.Volley;
 /**
  * Created by naren on 2015-08-22.
  */
-public class MySingleton {
-    private static MySingleton mInstance;
+public class NetworkOperationQueue {
+    private static NetworkOperationQueue mInstance;
     private RequestQueue mRequestQueue;
 
-    private MySingleton(Application context) {
+    private NetworkOperationQueue(Application context) {
         mRequestQueue = Volley.newRequestQueue(context.getApplicationContext());
     }
 
-    public static synchronized MySingleton getInstance(Application application) {
+    public static synchronized NetworkOperationQueue getInstance(Application application) {
         if (mInstance == null) {
-            mInstance = new MySingleton(application);
+            mInstance = new NetworkOperationQueue(application);
         }
         return mInstance;
     }

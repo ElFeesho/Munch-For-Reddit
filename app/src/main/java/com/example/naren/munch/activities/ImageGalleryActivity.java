@@ -19,7 +19,7 @@
 //import com.example.naren.munch.R;
 //import com.example.naren.munch.adapters.ImgurGalleryAdapter;
 //import com.example.naren.munch.model.ImgurAlbum;
-//import com.example.naren.munch.network.MySingleton;
+//import com.example.naren.munch.network.NetworkOperationQueue;
 //
 //import org.json.JSONArray;
 //import org.json.JSONException;
@@ -54,7 +54,7 @@
 //        Bundle bundle = getIntent().getExtras();
 //        imageUrl = bundle.getString("imgur_album");
 //
-//        mRequestQueue = MySingleton.getInstance(this).getRequestQueue();
+//        mRequestQueue = NetworkOperationQueue.getInstance(this).getRequestQueue();
 //
 //        mRecyclerView = (RecyclerView) findViewById(R.id.all_recyclerview);
 //        adapter = new ImgurGalleryAdapter(this, getImagurAlbum(imageUrl));
@@ -137,7 +137,7 @@
 //            }
 //        });
 //
-//        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+//        NetworkOperationQueue.getInstance(this).addToRequestQueue(jsonObjectRequest);
 //
 //        return imgurAlbumArrayList;
 //

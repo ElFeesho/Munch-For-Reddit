@@ -20,7 +20,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.naren.munch.R;
 import com.example.naren.munch.adapters.RecyclerViewAdapter;
 import com.example.naren.munch.model.RedditPost;
-import com.example.naren.munch.network.MySingleton;
+import com.example.naren.munch.network.NetworkOperationQueue;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -264,7 +264,7 @@ public class RedditPostFragment extends Fragment {
             }
         });
 
-        MySingleton.getInstance(getActivity().getApplication()).addToRequestQueue(jsonObjectRequest);
+        NetworkOperationQueue.getInstance(getActivity().getApplication()).addToRequestQueue(jsonObjectRequest);
 
         return redditPostArrayList;
 
@@ -352,7 +352,7 @@ public class RedditPostFragment extends Fragment {
             }
         });
 
-        MySingleton.getInstance(getActivity().getApplication()).addToRequestQueue(jsonObjectRequest);
+        NetworkOperationQueue.getInstance(getActivity().getApplication()).addToRequestQueue(jsonObjectRequest);
 
         return redditPostArrayList;
 
@@ -430,7 +430,7 @@ public class RedditPostFragment extends Fragment {
             }
         });
 
-        MySingleton.getInstance(getActivity().getApplication()).addToRequestQueue(jsonObjectRequest);
+        NetworkOperationQueue.getInstance(getActivity().getApplication()).addToRequestQueue(jsonObjectRequest);
 
         return redditPostArrayList;
 
@@ -508,7 +508,7 @@ public class RedditPostFragment extends Fragment {
             }
         });
 
-        MySingleton.getInstance(getActivity().getApplication()).addToRequestQueue(jsonObjectRequest);
+        NetworkOperationQueue.getInstance(getActivity().getApplication()).addToRequestQueue(jsonObjectRequest);
 
         return redditPostArrayList;
 
@@ -803,7 +803,7 @@ public class RedditPostFragment extends Fragment {
 //            }
 //        });
 //
-//        MySingleton.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest);
+//        NetworkOperationQueue.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest);
 //
 //        return redditPostArrayList;
 //
@@ -892,7 +892,7 @@ public class RedditPostFragment extends Fragment {
 //            }
 //        });
 //
-//        MySingleton.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest);
+//        NetworkOperationQueue.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest);
 //
 //        return redditPostArrayList;
 //

@@ -36,7 +36,7 @@ import com.example.naren.munch.activities.WebActivity;
 import com.example.naren.munch.activities.YoutubeActivity;
 import com.example.naren.munch.adapters.CommentAdapter;
 import com.example.naren.munch.model.Comment;
-import com.example.naren.munch.network.MySingleton;
+import com.example.naren.munch.network.NetworkOperationQueue;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -486,7 +486,7 @@ public class DetailPostFragment extends Fragment {
             });
 
 
-            MySingleton.getInstance(getActivity().getApplication()).addToRequestQueue(jsonArrayRequest);
+            NetworkOperationQueue.getInstance(getActivity().getApplication()).addToRequestQueue(jsonArrayRequest);
 
             return commentArrayList;
 
