@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#1c1a1e"
+<LinearLayout
     android:id="@+id/container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1c1a1e"
     android:orientation="vertical">
 
 
-    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <android.support.v7.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:clickable="true"
         card_view:cardBackgroundColor="#272527"
-        card_view:cardCornerRadius="4dp"
-        android:clickable="true">
+        card_view:cardCornerRadius="4dp">
 
         <LinearLayout
             android:id="@+id/main_content_linear"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="10dp"
-            android:orientation="vertical"
-            android:clickable="true">
+            android:clickable="true"
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -34,41 +36,41 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:src="@mipmap/ic_launcher" />
+                    tools:src="@mipmap/ic_launcher"/>
 
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/post_image_thumbnail_link"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/post_image_imageView"
-                    android:text="[Gif]"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="#fffdff"
-                    android:textSize="16sp"
-                    android:gravity="bottom"
-                    android:layout_alignTop="@+id/post_image_imageView"
                     android:layout_alignBottom="@+id/post_image_imageView"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignTop="@+id/post_image_imageView"
+                    android:layout_below="@id/post_image_imageView"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="bottom"
+                    android:textColor="#fffdff"
+                    android:textSize="16sp"
+                    android:visibility="gone"
+                    tools:text="[Gif]"/>
 
 
             </RelativeLayout>
 
-            
+
             <TextView
                 android:id="@+id/post_title_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/post_image_imageView"
                 android:layout_margin="10dp"
-                android:text="Test Title"
                 android:textColor="#fffdff"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                tools:text="Test Title"/>
 
             <LinearLayout
                 android:id="@+id/post_link_placeholder"
@@ -96,8 +98,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:gravity="center"
-                        android:text="en.wikipedia.org"
                         android:visibility="visible"
+                        tools:text="en.wikipedia.org"
                         />
 
                 </LinearLayout>
@@ -125,10 +127,10 @@
                     android:id="@+id/post_author"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dummy_User "
                     android:textColor="#8699b1"
                     android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:text="Dummy_User "/>
 
                 <TextView
                     android:id="@+id/post_in"
@@ -137,16 +139,16 @@
                     android:text=" in "
                     android:textColor="@color/grey_500"
                     android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/post_subreddit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="pics"
                     android:textColor="#8699b1"
                     android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:text="pics"/>
 
                 <TextView
                     android:id="@+id/post_bullet"
@@ -155,34 +157,34 @@
                     android:text=" • "
                     android:textColor="@color/grey_500"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/post_domain"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="msnbc.com"
                     android:textColor="#8699b1"
                     android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:text="msnbc.com"/>
 
                 <!--<TextView-->
-                    <!--android:id="@+id/post_bullet2"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text=" • "-->
-                    <!--android:textColor="@color/grey_500"-->
-                    <!--android:textSize="14sp"-->
-                    <!--android:textStyle="bold" />-->
+                <!--android:id="@+id/post_bullet2"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text=" • "-->
+                <!--android:textColor="@color/grey_500"-->
+                <!--android:textSize="14sp"-->
+                <!--android:textStyle="bold" />-->
 
                 <!--<TextView-->
-                    <!--android:id="@+id/post_time"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="3hrs"-->
-                    <!--android:textColor="#8699b1"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:textStyle="bold" />-->
+                <!--android:id="@+id/post_time"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="3hrs"-->
+                <!--android:textColor="#8699b1"-->
+                <!--android:textSize="12sp"-->
+                <!--android:textStyle="bold" />-->
 
             </LinearLayout>
 
@@ -193,10 +195,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
-                android:text="2500 points"
                 android:textColor="#817f81"
                 android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="2500 points"/>
 
             <TextView
                 android:id="@+id/post_comments"
@@ -204,10 +206,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="-3dp"
-                android:text="500 comments"
                 android:textColor="#817f81"
                 android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="500 comments"/>
 
         </LinearLayout>
 
