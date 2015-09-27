@@ -29,4 +29,5 @@
     <string name="action_reply">Reply</string>
     <string name="action_goBack">Back</string>
     <string name="action_goForward">Forward</string>
+    <string name="comment_karma">%1$d points</string>
 </resources>
