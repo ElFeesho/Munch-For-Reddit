@@ -25,17 +25,16 @@ public class SubredditViewPagerAdapter extends FragmentStatePagerAdapter {
             R.id.item_upnews, R.id.item_videos, R.id.item_worldnews, R.id.item_writingprompts
     };
 
-    private final static String[] FEED_TITLES =
-
-            {"frontpage", "all", "aww", "art", "askreddit", "askscience",
-                    "announcements", "blogs", "books", "creepy", "dataisbeautiful", "DIY", "Documentaries",
-                    "earthporn", "explainlimeimfive", "fitness", "food", "funny", "futurology", "gadgets", "gaming", "getmotivated",
-                    "gifs", "history", "iama", "internetisbeautiful", "jokes", "lifeprotips",
-                    "listentothis", "mildlyinteresting", "movies", "Music", "news", "nosleep",
-                    "nottheonion", "oldschoolcool", "personalfinance", "philosophy",
-                    "photoshopbattles", "pics", "science", "showerthoughts", "space", "sports",
-                    "television", "tifu", "todayilearned", "twoxchromosomes", "upliftingnews", "videos", "worldnews", "writingprompts"
-            };
+    private final static String[] FEED_TITLES = {
+            "frontpage", "all", "aww", "art", "askreddit", "askscience",
+            "announcements", "blogs", "books", "creepy", "dataisbeautiful", "DIY", "Documentaries",
+            "earthporn", "explainlimeimfive", "fitness", "food", "funny", "futurology", "gadgets", "gaming", "getmotivated",
+            "gifs", "history", "iama", "internetisbeautiful", "jokes", "lifeprotips",
+            "listentothis", "mildlyinteresting", "movies", "Music", "news", "nosleep",
+            "nottheonion", "oldschoolcool", "personalfinance", "philosophy",
+            "photoshopbattles", "pics", "science", "showerthoughts", "space", "sports",
+            "television", "tifu", "todayilearned", "twoxchromosomes", "upliftingnews", "videos", "worldnews", "writingprompts"
+    };
 
     public SubredditViewPagerAdapter(FragmentManager fm) {
         super(fm);
