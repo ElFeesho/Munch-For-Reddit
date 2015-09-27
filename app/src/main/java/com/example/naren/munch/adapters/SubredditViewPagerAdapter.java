@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import com.example.naren.munch.R;
 import com.example.naren.munch.fragments.RedditPostFragment;
 
-public class ViewPagerAdapter extends FragmentStatePagerAdapter {
+public class SubredditViewPagerAdapter extends FragmentStatePagerAdapter {
 
     private final static int[] subredditIds = {
             R.id.item_frontpage, R.id.item_all, R.id.item_aww,
@@ -37,7 +37,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
                     "television", "tifu", "todayilearned", "twoxchromosomes", "upliftingnews", "videos", "worldnews", "writingprompts"
             };
 
-    public ViewPagerAdapter(FragmentManager fm) {
+    public SubredditViewPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
