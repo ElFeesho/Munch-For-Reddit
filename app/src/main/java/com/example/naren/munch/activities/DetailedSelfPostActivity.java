@@ -1,7 +1,7 @@
 package com.example.naren.munch.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Log;
@@ -15,14 +15,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.naren.munch.R;
 import com.example.naren.munch.adapters.CommentAdapter;
 import com.example.naren.munch.model.Comment;
-import com.example.naren.munch.network.VolleySingleton;
+import com.example.naren.munch.network.MySingleton;
 import com.hannesdorfmann.swipeback.Position;
 import com.hannesdorfmann.swipeback.SwipeBack;
 
@@ -43,7 +42,6 @@ public class DetailedSelfPostActivity extends AppCompatActivity {
     private ProgressBar mProgressbar;
     private CommentAdapter adapter;
     private ListView mListView;
-    private RequestQueue mRequestQueue;
     private ArrayList<Comment> commentArrayList = new ArrayList<>();
     private LayoutInflater layoutInflater;
 
@@ -78,8 +76,6 @@ public class DetailedSelfPostActivity extends AppCompatActivity {
         String op_author = bundle.getString("author");
 
         initializeBundleData();
-
-        mRequestQueue = VolleySingleton.getInstance().getRequestQueue();
         mListView = (ListView) findViewById(R.id.comment_listView);
 
         layoutInflater = getLayoutInflater();
@@ -173,7 +169,7 @@ public class DetailedSelfPostActivity extends AppCompatActivity {
                 }
             });
 
-            mRequestQueue.add(jsonArrayRequest);
+            MySingleton.getInstance(getApplication()).addToRequestQueue(jsonArrayRequest);
 
             return commentArrayList;
 

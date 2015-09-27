@@ -14,7 +14,6 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -43,7 +42,6 @@ public class RedditPostFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private RequestQueue mRequestQueue;
     private RecyclerView mRecyclerView;
     private RecyclerViewAdapter adapter;
     private ArrayList<RedditPost> redditPostArrayList = new ArrayList<>();
@@ -101,9 +99,6 @@ public class RedditPostFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_redditpost, container, false);
 
         mProgressbar = (ProgressBar) rootView.findViewById(R.id.progressbar);
-
-        //JSON request
-        mRequestQueue = MySingleton.getInstance(getActivity()).getRequestQueue();
 
         //setting up the recyclerview with the adapter
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.all_recyclerview);
@@ -269,7 +264,7 @@ public class RedditPostFragment extends Fragment {
             }
         });
 
-        MySingleton.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest);
+        MySingleton.getInstance(getActivity().getApplication()).addToRequestQueue(jsonObjectRequest);
 
         return redditPostArrayList;
 
@@ -357,7 +352,7 @@ public class RedditPostFragment extends Fragment {
             }
         });
 
-        MySingleton.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest);
+        MySingleton.getInstance(getActivity().getApplication()).addToRequestQueue(jsonObjectRequest);
 
         return redditPostArrayList;
 
@@ -435,7 +430,7 @@ public class RedditPostFragment extends Fragment {
             }
         });
 
-        MySingleton.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest);
+        MySingleton.getInstance(getActivity().getApplication()).addToRequestQueue(jsonObjectRequest);
 
         return redditPostArrayList;
 
@@ -513,7 +508,7 @@ public class RedditPostFragment extends Fragment {
             }
         });
 
-        MySingleton.getInstance(getActivity()).addToRequestQueue(jsonObjectRequest);
+        MySingleton.getInstance(getActivity().getApplication()).addToRequestQueue(jsonObjectRequest);
 
         return redditPostArrayList;
 

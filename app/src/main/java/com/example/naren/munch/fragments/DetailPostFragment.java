@@ -25,7 +25,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -65,7 +64,6 @@ public class DetailPostFragment extends Fragment {
 
     private ListView mListView;
 
-    private RequestQueue mRequestQueue;
     private ArrayList<Comment> commentArrayList = new ArrayList<>();
     private CardView mCardView;
     private TextView mPostTitle, mPostScore, mComments, mSubreddit, mAuthor,
@@ -167,7 +165,6 @@ public class DetailPostFragment extends Fragment {
 
         initializeBundleData();
 
-        mRequestQueue = MySingleton.getInstance(getActivity()).getRequestQueue();
         mListView = (ListView) rootView.findViewById(R.id.comment_listView);
 
         View header = LayoutInflater.from(getContext()).inflate(R.layout.detail_post_card, null);
@@ -489,7 +486,7 @@ public class DetailPostFragment extends Fragment {
             });
 
 
-            MySingleton.getInstance(getActivity()).addToRequestQueue(jsonArrayRequest);
+            MySingleton.getInstance(getActivity().getApplication()).addToRequestQueue(jsonArrayRequest);
 
             return commentArrayList;
 
